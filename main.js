@@ -30,6 +30,7 @@ function makeMove(cellIndex) {
     }
   }
 }
+window.makeMove = makeMove;
 
 function renderBoard() {
   const cells = document.querySelectorAll(".cell");
@@ -37,6 +38,7 @@ function renderBoard() {
     cell.innerText = board[index];
   });
 }
+window.renderBoard = renderBoard;
 
 function resetGame() {
   currentPlayer = "X";
@@ -46,6 +48,7 @@ function resetGame() {
     "message"
   ).innerText = `Player ${currentPlayer}'s turn`;
 }
+window.resetGame = resetGame;
 
 function hasWon() {
   return winningCombinations.some((combination) => {
@@ -54,9 +57,11 @@ function hasWon() {
     });
   });
 }
+window.hasWon = hasWon;
 
 function isGameOver() {
   return hasWon() || board.every((cell) => cell !== "");
 }
+window.isGameOver = isGameOver;
 
 document.getElementById("message").innerText = `Player ${currentPlayer}'s turn`;
